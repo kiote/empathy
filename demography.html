@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Experiment</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    <!-- Start your project here-->
+    <div class="container bg-light bg-gradient">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width: 5%;"
+          aria-valuenow="5"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <div class="container px-4">
+        <div class="row gx-5">
+          <div class="col">
+           <div class="p-3 bg-light"></div>
+          </div>
+          <div class="col">
+            <div class="p-3 bg-light"></div>
+          </div>
+        </div>
+      </div>
+      <h1>Demographic data</h1>
+      <h3>Please answer following questions.<br/> 
+        Your personal data will never be published.</h3>
+
+      <form action="http://localhost:8080/demographic" method="POST">
+        <div class="form-outline mb-4">
+          <input type="text" id="form4Example1" class="form-control" />
+          <label class="form-label" for="form4Example1">Your name</label>
+        </div>
+      
+        <div class="form-outline mb-4">
+          <input type="age" id="form4Example2" class="form-control" />
+          <label class="form-label" for="form4Example2">Your age</label>
+        </div>
+      
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <label for="exampleFormControlInput1" class="form-label">Your gender</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1">
+            <option selected>-- choose --</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Better not to say</option>
+          </select>
+        </div>
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+      </form>
+    </div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+  </body>
+</html>
