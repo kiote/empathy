@@ -23,6 +23,7 @@ const server = http.createServer((req, res) => {
             } else if (req.url === '/tcs' && req.method === 'GET') {
                 res.end('HI RCSer');
             } else if (req.url === '/demographic' && req.method === 'POST') {
+              console.log(req);
               res.end('Saved');
             } else {
                 res.statusCode = 404;
