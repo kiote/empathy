@@ -46,19 +46,19 @@
 
       <form action="http://localhost:8080/demographic" method="POST">
         <div class="form-outline mb-4">
-          <input type="text" id="form4Example1" class="form-control" />
+          <input type="text" id="form4Example1" class="form-control" name="name" />
           <label class="form-label" for="form4Example1">Your name</label>
         </div>
       
         <div class="form-outline mb-4">
-          <input type="age" id="form4Example2" class="form-control" />
+          <input type="text" id="form4Example2" class="form-control" name="age" />
           <label class="form-label" for="form4Example2">Your age</label>
         </div>
       
         <!-- Checkbox -->
         <div class="form-check d-flex justify-content-center mb-4">
           <label for="exampleFormControlInput1" class="form-label">Your gender</label>
-          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1">
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="sex">
             <option selected>-- choose --</option>
             <option value="1">Male</option>
             <option value="2">Female</option>
