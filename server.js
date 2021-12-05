@@ -9,28 +9,46 @@ const port = 8080;
 
 const file_name = Date.now();
 
+// randomly returns 1 or 2 to deside which video to start with
+function number() {
+  return file_name % 2 == 0 ? 1 : 2;
+}
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('.'))
 
+/**
+ * demographic
+ */
 app.post('/demographic', (req, res) => {
   const params = req.body;
   save_demographic(params);
   res.redirect("eq");
-})
+});
 
+/**
+ * eq
+ */
 app.get('/eq', (req, res) => {
   res.sendFile(path.join(__dirname, '/eq.html'));
-})
+});
 
 app.post('/eq', (req, res) => {
   const params = req.body;
   save_eq(params);
-  res.redirect("eq");
-})
+  res.redirect("video");
+});
+
+/**
+ * video
+ */
+app.get('/video', (req, res) => {
+  res.sendFile(path.join(__dirname, '/video' + number() + '.html'));
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
-})
+});
 
 function save_demographic(params) {
   data = "Name,Age,Gender\r\n"+params.name+','+params.age+','+params.sex+'\r\n';
