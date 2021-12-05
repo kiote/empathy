@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Experiment</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    <!-- Start your project here-->
+    <div class="container bg-light bg-gradient">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width: 15%;"
+          aria-valuenow="15"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <div class="container px-4">
+        <div class="row gx-5">
+          <div class="col">
+           <div class="p-3 bg-light"></div>
+          </div>
+          <div class="col">
+            <div class="p-3 bg-light"></div>
+          </div>
+        </div>
+      </div>
+      <h1>Empathy Quotient</h1>
+      <h3>The Empathy Quotient (EQ) is a 40-item questionnaire designed to measure empathy in adults. The test was developed at the University of Cambridge.
+
+        It is suitable for use as a casual measure of temperamental empathy for the general population.
+        
+        Below is a list of statements. Please read each statement carefully and rate how strongly you agree or disagree with it by selecting the circle under your answer. There are no right or wrong answers, or trick questions.
+        </h3>
+
+      <form action="http://localhost:8080/eq" method="POST">
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">1. I can easily tell if someone else wants to enter a conversation.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q1">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">2. I ﬁnd it difﬁcult to explain to others things that I understand easily, when they don’t understand it ﬁrst time.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q2">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">3. I really enjoy caring for other people.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q3">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">4. I ﬁnd it hard to know what to do in a social situation.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q4">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">5. People often tell me that I went too far in driving my point home in a discussion.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q5">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">6. It doesn’t bother me too much if I am late meeting a friend.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q6">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">7. Friendships and relationships are just too difficult, so I tend not to bother with them.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q7">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">8. I often find it difficult to judge if something is rude or polite.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q8">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">9. In a conversation, I tend to focus on my own thoughts rather than on what my listener might be thinking.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q9">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">10. When I was a child, I enjoyed cutting up worms to see what would happen.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q10">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+      
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">11. I can pick up quickly if someone says one thing but means another.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q11">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">12. It is hard for me to see why some things upset people so much.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q12">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">13. I ﬁnd it easy to put myself in somebody else’s shoes.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q13">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">14. I am good at predicting how someone will feel.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q14">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">15. I am quick to spot when someone in a group is feeling awkward or uncomfortable.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q15">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">16. If I say something that someone else is offended by, I think that that’s their problem, not mine.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q16">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">17. If anyone asked me if I liked their haircut, I would reply truthfully, even if I didn’t like it.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q17">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">18. I can’t always see why someone should have felt offended by a remark.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q18">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">19. Seeing people cry doesn’t really upset me.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q19">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">20. I am very blunt, which some people take to be rudeness, even though this is unintentional.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q20">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">21. I don’t tend to ﬁnd social situations confusing.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q21">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">22. Other people tell me I am good at understanding how they are feeling and what they are thinking.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q22">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">23. When I talk to people, I tend to talk about their experiences rather than my own.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q23">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">24. It upsets me to see an animal in pain.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q24">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">25. I am able to make decisions without being inﬂuenced by people’s feelings.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q25">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">26. I can easily tell if someone else is interested or bored with what I am saying.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q26">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">27. I get upset if I see people suffering on news programmes.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q27">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">28. Friends usually talk to me about their problems as they say that I am very understanding.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q28">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">29. I can sense if I am intruding, even if the other person doesn’t tell me.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q29">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">30. People sometimes tell me that I have gone too far with teasing.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q30">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">31. Other people, often say that I am insensitive, though I don’t always see why.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q31">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">32. If I see a stranger in a group, I think that it is up to them to make an effort to join in.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q32">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">33. I usually stay emotionally detached when watching a ﬁlm.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q33">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">34. I can tune into how someone else feels rapidly and intuitively.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q34">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">35. I can easily work out what another person might want to talk about.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q35">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">36. I can tell if someone is masking their true emotion.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q36">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">37. I don’t consciously work out the rules of social situations.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q37">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">38. I am good at predicting what someone will do.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q38">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">39. I tend to get emotionally involved with a friend’s problems.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q39">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">40. I can usually appreciate the other person’s viewpoint, even if I don’t agree with it.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q40">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+        
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+      </form>
+    </div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+  </body>
+</html>
