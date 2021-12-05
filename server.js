@@ -27,7 +27,7 @@ app.post('/demographic', (req, res) => {
 });
 
 /**
- * eq
+ * eq (Empathy Quotient test)
  */
 app.get('/eq', (req, res) => {
   res.sendFile(path.join(__dirname, '/eq.html'));
@@ -44,6 +44,44 @@ app.post('/eq', (req, res) => {
  */
 app.get('/video', (req, res) => {
   res.sendFile(path.join(__dirname, '/video' + number() + '.html'));
+});
+
+/**
+ * se (situational empathy test)
+ */
+app.get('/se1', (req, res) => {
+  res.sendFile(path.join(__dirname, '/se1.html'));
+});
+
+app.get('/se2', (req, res) => {
+  res.sendFile(path.join(__dirname, '/se2.html'));
+});
+
+app.post('/se1', (req, res) => {
+  const params = req.body;
+  save_se(1, params);
+  if (se_file_exists(2)) {
+    res.redirect("done");
+  } else {
+    res.sendFile(path.join(__dirname, '/video2.html'));
+  }
+});
+
+app.post('/se2', (req, res) => {
+  const params = req.body;
+  save_se(2, params);
+  if (se_file_exists(1)) {
+    res.redirect("done");
+  } else {
+    res.sendFile(path.join(__dirname, '/video1.html'));
+  }
+});
+
+/**
+ * done
+ */
+app.get('/done', (req, res) => {
+  res.sendFile(path.join(__dirname, '/done.html'));
 });
 
 app.listen(port, () => {
@@ -72,4 +110,20 @@ function save_eq(params) {
     if (err) throw err;
     console.log('File is created successfully.');
   });
+}
+
+function save_se(num, params) {
+  data = 'q1,q2,q3,q4,q5\r\n';
+  data += params.q1+','+params.q2+','+params.q3+','+params.q4+','+params.q5 +'\r\n';
+
+  fs.writeFile(file_name + 'se' + num + '.csv', data, function (err) {
+    if (err) throw err;
+    console.log('File is created successfully.');
+  });
+}
+
+function se_file_exists(num) {
+  let path = './' + file_name + 'se' + num + '.csv';
+  console.log(path);
+  return fs.existsSync('./' + file_name + 'se' + num + '.csv')
 }

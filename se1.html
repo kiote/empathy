@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Experiment</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    <!-- Start your project here-->
+    <div class="container bg-light bg-gradient">
+      <h1>Situational Empathy Test</h1>
+      <h3>How did you react on current situation you saw on video?</h3>
+
+      <form action="http://localhost:8080/se1" method="POST">
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">1. I can really imagine the thoughts running through Mark’s, the personal assistant’s, head.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q1">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">2. I can really feel what Mark, the personal assistant, must have been feeling during the cold bucket episode.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q2">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">3. I can take perspective of Mark, the personal assistant, and understand why he put his hand into the bucket </label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q3">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">4. I can really see myself in Mark’s, the personal assistant’s, shoes. </label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q4">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">5. I can imagine what Mark, the personal assistant, felt during the task.</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="q5">
+            <option selected>-- choose --</option>
+            <option value="1">Strongly agree</option>
+            <option value="2">Sligtly agree</option>
+            <option value="3">Sligtly disagree</option>
+            <option value="4">Strongly disagree</option>
+          </select>
+        </div>
+
+        
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+      </form>
+    </div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+  </body>
+</html>
