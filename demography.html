@@ -26,8 +26,37 @@
 
       <form action="http://localhost:8080/demographic" method="POST">
         <div class="form-outline mb-4">
-          <input type="text" id="form4Example1" class="form-control" name="name" />
-          <label class="form-label" for="form4Example1">Your name</label>
+          <label class="form-label" for="form4Example2">Which of the following best describes you?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="race" id="race1" value="white" checked>
+            <label class="form-check-label" for="race1">
+              White or Caucasian
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="race" id="race2" value="black">
+            <label class="form-check-label" for="race2">
+              Black or African American
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="race" id="race2" value="hispanic">
+            <label class="form-check-label" for="race2">
+              Hispanic or Latino
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="race" id="race2" value="asian">
+            <label class="form-check-label" for="race2">
+              Asian or Pacific Islander
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="race" id="race2" value="multi">
+            <label class="form-check-label" for="race2">
+              Multiracial or Biracial
+            </label>
+          </div>
         </div>
       
         <div class="form-outline mb-4">

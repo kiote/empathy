@@ -89,7 +89,7 @@ app.listen(port, () => {
 });
 
 function save_demographic(params) {
-  data = "Name,Age,Gender\r\n"+params.name+','+params.age+','+params.sex+'\r\n';
+  data = "Race,Age,Gender\r\n"+params.race+','+params.age+','+params.sex+'\r\n';
 
   fs.writeFile(file_name + 'dm.csv', data, function (err) {
     if (err) throw err;
