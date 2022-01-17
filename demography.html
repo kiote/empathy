@@ -21,42 +21,23 @@
     <!-- Start your project here-->
     <div class="container bg-light bg-gradient">
       <h1>Demographic data</h1>
+      <br>
       <h3>Please answer following questions.<br/> 
-        Your personal data will never be published.</h3>
-
+        All questions are anonymous.</h3>
+        <br>
       <form action="http://localhost:8080/demographic" method="POST">
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form4Example2">Which of the following best describes you?</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="race" id="race1" value="white" checked>
-            <label class="form-check-label" for="race1">
-              White or Caucasian
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="race" id="race2" value="black">
-            <label class="form-check-label" for="race2">
-              Black or African American
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="race" id="race2" value="hispanic">
-            <label class="form-check-label" for="race2">
-              Hispanic or Latino
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="race" id="race2" value="asian">
-            <label class="form-check-label" for="race2">
-              Asian or Pacific Islander
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="race" id="race2" value="multi">
-            <label class="form-check-label" for="race2">
-              Multiracial or Biracial
-            </label>
-          </div>
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <label for="exampleFormControlInput1" class="form-label">Which of the following best describes you?</label>
+          <select class="form-select" aria-label="Default select example" id="exampleFormControlInput1" name="race">
+            <option selected>-- choose --</option>
+            <option value="1">White or Caucasian</option>
+            <option value="2">Black or African American</option>
+            <option value="3">Hispanic or Latino</option>
+            <option value="4">Asian or Pacific Islander</option>
+            <option value="5">Multiracial or Biracial</option>
+          </select>
         </div>
       
         <div class="form-outline mb-4">
@@ -74,7 +55,15 @@
             <option value="3">Better not to say</option>
           </select>
         </div>
-      
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="nodrugs">
+          <label class="form-check-label" for="flexCheckDefault">
+            In last 2 weeks I have not taken any psychoactive drugs
+          </label>
+        </div>
+        <br>
+        <br>
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
       </form>

@@ -89,7 +89,11 @@ app.listen(port, () => {
 });
 
 function save_demographic(params) {
-  data = "Race,Age,Gender\r\n"+params.race+','+params.age+','+params.sex+'\r\n';
+  if (params.nodrugs == undefined) {
+    params.nodrugs = "0";
+  }
+  console.log(params);
+  data = "Race,Age,Gender,Drugs\r\n"+params.race+','+params.age+','+params.sex+','+params.nodrugs+'\r\n';
 
   fs.writeFile(file_name + 'dm.csv', data, function (err) {
     if (err) throw err;
