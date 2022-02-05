@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"encoding/csv"
+	"example.com/m/v2/sensors"
 )
 
 var currentTimestamp = time.Now().Unix()
@@ -65,6 +66,7 @@ func video(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 		case "GET":		
 			 http.ServeFile(w, req, "../static/video" + strconv.Itoa(number) +".html")
+			 sensors.StartExperiment()
 		default:
 			fmt.Fprintf(w, "Sorry, only GET method is supported.")
 		}
