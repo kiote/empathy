@@ -12,4 +12,9 @@ open http://localhost:8090
 
 ## To calculate empaty score
 
-Copy em.csv file from corresponding folder to project root and run `node empathyscore.js`
+Copy em.csv file from corresponding folder to project root and run 
+
+```
+npm i
+npm start
+```

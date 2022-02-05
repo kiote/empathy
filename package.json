@@ -1,0 +1,22 @@
+{
+  "name": "empathy",
+  "version": "1.0.0",
+  "description": "```\r git clone git@github.com:kiote/empathy.git\r cd empathy/go\r go run .\r ```",
+  "main": "empathyscore.js",
+  "scripts": {
+    "start": "node empathyscore.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiote/empathy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiote/empathy/issues"
+  },
+  "homepage": "https://github.com/kiote/empathy#readme",
+  "dependencies": {
+    "fast-csv": "^4.3.6"
+  }
+}
