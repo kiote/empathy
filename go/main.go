@@ -70,6 +70,52 @@ func video(w http.ResponseWriter, req *http.Request) {
 		}
 }
 
+// Handle "/se1" requests
+func se1(w http.ResponseWriter, req *http.Request) {
+	switch req.Method {
+		case "GET":		
+			 http.ServeFile(w, req, "../static/se1.html")
+		case "POST":
+			if err := req.ParseForm(); err != nil {
+				fmt.Fprintf(w, "ParseForm() err: %v", err)
+				return
+			}
+			saveSe(1, w, req)
+			if (seFileExists(2)) {
+				http.Redirect(w, req, "/done", 302)
+			} else {
+				http.ServeFile(w, req, "../static/video2.html")
+			}
+		default:
+			fmt.Fprintf(w, "Sorry, only GET method is supported.")
+		}
+}
+
+// Handle "/se2" requests
+func se2(w http.ResponseWriter, req *http.Request) {
+	switch req.Method {
+		case "GET":		
+			 http.ServeFile(w, req, "../static/se2.html")
+		case "POST":
+			if err := req.ParseForm(); err != nil {
+				fmt.Fprintf(w, "ParseForm() err: %v", err)
+				return
+			}
+			saveSe(2, w, req)
+			if (seFileExists(1)) {
+				http.Redirect(w, req, "/done", 302)
+			} else {
+				http.ServeFile(w, req, "../static/video1.html")
+			}
+		default:
+			fmt.Fprintf(w, "Sorry, only GET method is supported.")
+		}
+}
+
+func done(w http.ResponseWriter, req *http.Request) {
+	http.ServeFile(w, req, "../static/done.html")
+}
+
 //
 // End of HTTP handlers
 //
@@ -117,6 +163,16 @@ func saveEq(w http.ResponseWriter, req *http.Request) {
 	writeCSV(file, eqData)
 }
 
+func saveSe(num int, w http.ResponseWriter, req *http.Request) {
+	seData := [][]string{
+		{"q1", "q2", "q3", "q4", "q5"},
+		{ req.FormValue("q1"), req.FormValue("q2"), req.FormValue("q3"), req.FormValue("q4"), req.FormValue("q5")},
+	}
+
+	file, _ := createCSV("se" + strconv.Itoa(num))
+	writeCSV(file, seData)
+}
+
 //
 // End of Data saving functions
 //
@@ -141,6 +197,17 @@ func writeCSV(csvFile *os.File, data [][]string) {
 	csvFile.Close()
 }
 
+func seFileExists(num int) bool {
+	exists := false
+	fmt.Printf(dataDir + "/se" + strconv.Itoa(num) + ".csv")
+	if _, err := os.Stat(dataDir + "/se" + strconv.Itoa(num) + ".csv"); err == nil {
+		fmt.Printf("File exists")
+		exists = true
+	}
+
+	return exists
+}
+
 func main() {
 	fs := http.FileServer(http.Dir("../static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -149,6 +216,9 @@ func main() {
 	http.HandleFunc("/demographic", demgoraphic)
 	http.HandleFunc("/eq", eq)
 	http.HandleFunc("/video", video)
+	http.HandleFunc("/se1", se1)
+	http.HandleFunc("/se2", se2)
+	http.HandleFunc("/done", done)
 
 	fmt.Printf("Listening 8090\n")
     http.ListenAndServe(":8090", nil)
