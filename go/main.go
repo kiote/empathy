@@ -75,9 +75,13 @@ func video(w http.ResponseWriter, req *http.Request) {
 func se1(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 		case "GET":	
-			 sensors.SaveExperiment(1)	
-			 sensors.StopExperiment()
-			 http.ServeFile(w, req, "../static/se1.html")
+			sensors.SaveExperiment(1)	
+			sensors.StopExperiment()
+			if (seFileExists(1)) {
+				http.Redirect(w, req, "/done", 302)
+			} else {
+				http.ServeFile(w, req, "../static/se1.html")
+			}
 		case "POST":
 			if err := req.ParseForm(); err != nil {
 				fmt.Fprintf(w, "ParseForm() err: %v", err)
@@ -88,6 +92,7 @@ func se1(w http.ResponseWriter, req *http.Request) {
 			if (seFileExists(2)) {
 				http.Redirect(w, req, "/done", 302)
 			} else {
+				sensors.StartExperiment()
 				http.ServeFile(w, req, "../static/video2.html")
 			}
 		default:
@@ -101,7 +106,11 @@ func se2(w http.ResponseWriter, req *http.Request) {
 		case "GET":		
 			 sensors.SaveExperiment(2)	
 			 sensors.StopExperiment()
-			 http.ServeFile(w, req, "../static/se2.html")
+			 if (seFileExists(2)) {
+				http.Redirect(w, req, "/done", 302)
+			} else {
+				http.ServeFile(w, req, "../static/se2.html")
+			}
 		case "POST":
 			if err := req.ParseForm(); err != nil {
 				fmt.Fprintf(w, "ParseForm() err: %v", err)
@@ -111,6 +120,7 @@ func se2(w http.ResponseWriter, req *http.Request) {
 			if (seFileExists(1)) {
 				http.Redirect(w, req, "/done", 302)
 			} else {
+				sensors.StartExperiment()
 				http.ServeFile(w, req, "../static/video1.html")
 			}
 		default:
