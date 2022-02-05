@@ -23,17 +23,12 @@ func demgoraphic(w http.ResponseWriter, req *http.Request) {
 		case "GET":		
 			 http.ServeFile(w, req, "../static/demography.html")
 		case "POST":
-			// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
 			if err := req.ParseForm(); err != nil {
 				fmt.Fprintf(w, "ParseForm() err: %v", err)
 				return
 			}
-			fmt.Fprintf(w, "Post from website! r.PostFrom = %v\n", req.PostForm)
-			name := req.FormValue("name")
-			address := req.FormValue("address")
-			fmt.Fprintf(w, "Name = %s\n", name)
-			fmt.Fprintf(w, "Address = %s\n", address)
 			saveDemographic(w, req)
+			http.Redirect(w, req, "/eq", 302)
 		default:
 			fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 		}
