@@ -10,7 +10,7 @@ go run .
 
 open http://localhost:8090
 
-## To calculate empaty score
+## To calculate empathy score
 
 Copy em.csv file from corresponding folder to project root and run 
 
