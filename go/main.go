@@ -3,12 +3,11 @@ package main
 import (
     "fmt"
 	"net/http"
-	"log"
 	"time"
 	"os"
 	"strconv"
-	"encoding/csv"
 	"example.com/m/v2/sensors"
+	"example.com/m/v2/files"
 )
 
 var currentTimestamp = time.Now().Unix()
@@ -75,13 +74,16 @@ func video(w http.ResponseWriter, req *http.Request) {
 // Handle "/se1" requests
 func se1(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
-		case "GET":		
+		case "GET":	
+			 sensors.SaveExperiment(1)	
+			 sensors.StopExperiment()
 			 http.ServeFile(w, req, "../static/se1.html")
 		case "POST":
 			if err := req.ParseForm(); err != nil {
 				fmt.Fprintf(w, "ParseForm() err: %v", err)
 				return
 			}
+			
 			saveSe(1, w, req)
 			if (seFileExists(2)) {
 				http.Redirect(w, req, "/done", 302)
@@ -97,6 +99,8 @@ func se1(w http.ResponseWriter, req *http.Request) {
 func se2(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 		case "GET":		
+			 sensors.SaveExperiment(2)	
+			 sensors.StopExperiment()
 			 http.ServeFile(w, req, "../static/se2.html")
 		case "POST":
 			if err := req.ParseForm(); err != nil {
@@ -140,8 +144,8 @@ func saveDemographic(w http.ResponseWriter, req *http.Request) {
 		{ age, race, sex, strconv.FormatBool(nodrugs) },
 	}
 
-	file, _ := createCSV("demographic")
-	writeCSV(file, demographicData)
+	file, _ := files.CreateCSV("demographic", dataDir)
+	files.WriteCSV(file, demographicData)
 }
 
 //Save EQ test data
@@ -161,8 +165,8 @@ func saveEq(w http.ResponseWriter, req *http.Request) {
 		req.FormValue("q36"), req.FormValue("q37"), req.FormValue("q38"), req.FormValue("q39"), req.FormValue("q40")},
 	}
 
-	file, _ := createCSV("eq")
-	writeCSV(file, eqData)
+	file, _ := files.CreateCSV("eq", dataDir)
+	files.WriteCSV(file, eqData)
 }
 
 func saveSe(num int, w http.ResponseWriter, req *http.Request) {
@@ -171,33 +175,14 @@ func saveSe(num int, w http.ResponseWriter, req *http.Request) {
 		{ req.FormValue("q1"), req.FormValue("q2"), req.FormValue("q3"), req.FormValue("q4"), req.FormValue("q5")},
 	}
 
-	file, _ := createCSV("se" + strconv.Itoa(num))
-	writeCSV(file, seData)
+	file, _ := files.CreateCSV("se" + strconv.Itoa(num), dataDir)
+	files.WriteCSV(file, seData)
 }
 
 //
 // End of Data saving functions
 //
 
-func createCSV(name string) (*os.File, error) {
-	os.Mkdir(dataDir, 0775)
-	csvFile, err := os.Create(dataDir + "/" + name + ".csv")
-
-	if err != nil {
-		log.Fatalf("failed creating file: %s", err)
-	}
-	return csvFile, err
-}
-
-func writeCSV(csvFile *os.File, data [][]string) {
-	csvwriter := csv.NewWriter(csvFile)
-	fmt.Printf("%v", data)
-	for _, empRow := range data {
-		_ = csvwriter.Write(empRow)
-	}
-	csvwriter.Flush()
-	csvFile.Close()
-}
 
 func seFileExists(num int) bool {
 	exists := false
