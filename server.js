@@ -1,8 +1,8 @@
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const path = require('path');
+import express from 'express';
+import bodyParser from 'body-parser';
+import fs from 'fs';
+import path  from 'path';
+import { checkConnection } from './sensors/gsr.js';
 
 const app = express();
 const port = 8080;
@@ -22,6 +22,7 @@ app.use(express.static('.'))
  */
 app.post('/demographic', (req, res) => {
   const params = req.body;
+  checkConnection();
   save_demographic(params);
   res.redirect("eq");
 });
@@ -85,7 +86,7 @@ app.get('/done', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
 
 function save_demographic(params) {
