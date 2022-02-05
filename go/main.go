@@ -49,9 +49,24 @@ func eq(w http.ResponseWriter, req *http.Request) {
 				return
 			}
 			saveEq(w, req)
-			http.Redirect(w, req, "/eq", 302)
+			http.Redirect(w, req, "/video", 302)
 		default:
 			fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
+		}
+}
+
+// Handle "/video" requests
+func video(w http.ResponseWriter, req *http.Request) {
+	number := 1
+	if currentTimestamp % 2 == 0 {
+		number = 2
+	}
+
+	switch req.Method {
+		case "GET":		
+			 http.ServeFile(w, req, "../static/video" + strconv.Itoa(number) +".html")
+		default:
+			fmt.Fprintf(w, "Sorry, only GET method is supported.")
 		}
 }
 
@@ -133,6 +148,7 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/demographic", demgoraphic)
 	http.HandleFunc("/eq", eq)
+	http.HandleFunc("/video", video)
 
 	fmt.Printf("Listening 8090\n")
     http.ListenAndServe(":8090", nil)
