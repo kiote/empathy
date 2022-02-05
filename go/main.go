@@ -63,15 +63,17 @@ func createCSV(name string) (*os.File, error) {
 	if err != nil {
 		log.Fatalf("failed creating file: %s", err)
 	}
-	csvFile.Close()
 	return csvFile, err
 }
 
-func writeCSV(file *os.File, data [][]string) {
-	w := csv.NewWriter(file)
+func writeCSV(csvFile *os.File, data [][]string) {
+	csvwriter := csv.NewWriter(csvFile)
 	fmt.Printf("%v", data)
-	defer w.Flush()
-	w.WriteAll(data)
+	for _, empRow := range data {
+		_ = csvwriter.Write(empRow)
+	}
+	csvwriter.Flush()
+	csvFile.Close()
 }
 
 func main() {
