@@ -3,7 +3,13 @@ package sensors
 import (
 	"fmt"
 	"net/http"
+	"io/ioutil"
+	"encoding/json"
 )
+
+type Samples struct {
+	GetExperimentSamples [][]interface{} `json:"GetExperimentSamples"`
+}
 
 var (
 	serverUrl = "http://localhost"
@@ -39,6 +45,12 @@ func httpCall(command string) {
 	if err != nil {
 		fmt.Printf("%e \n", err)
 	} else {
-		fmt.Printf("%v \n", resp)
+		defer resp.Body.Close()
+		body, _ := ioutil.ReadAll(resp.Body) // response body is []byte
+		var result Samples
+		if err := json.Unmarshal(body, &result); err != nil {  // Parse []byte to the go struct pointer
+			fmt.Println("Can not unmarshal JSON")
+		}
+		fmt.Printf("%l", result)
 	}
 }
