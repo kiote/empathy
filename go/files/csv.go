@@ -5,11 +5,12 @@ import (
 	"log"
 	"encoding/csv"
 	"fmt"
+	"example.com/m/v2/general"
 )
 
-func CreateCSV(name string, dataDir string) (*os.File, error) {
-	os.Mkdir(dataDir, 0775)
-	csvFile, err := os.Create(dataDir + "/" + name + ".csv")
+func CreateCSV(name string) (*os.File, error) {
+	os.Mkdir(settings.DataDir, 0775)
+	csvFile, err := os.Create(settings.DataDir + "/" + name + ".csv")
 
 	if err != nil {
 		log.Fatalf("failed creating file: %s", err)

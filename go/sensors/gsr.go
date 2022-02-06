@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	"io/ioutil"
+	"strconv"
 	"encoding/json"
+	"example.com/m/v2/files"
 )
 
 type Samples struct {
@@ -33,24 +35,45 @@ func StopExperiment() {
 	httpCall(stopExperiment)
 }
 
-func SaveExperiment(num int) {
+func SaveExperiment(fileNum int) {
 	fmt.Printf("GSR Data collection save...\n")
-	fmt.Printf("To file %d", num)
-	httpCall(getSamples)
+	fmt.Printf("To file %d", fileNum)
+	smaples, _ := httpCall(getSamples)
+	saveSamples(fileNum, smaples)
 }
 
-func httpCall(command string) {
+func httpCall(command string) (Samples, error) {
 	fmt.Printf(serverUrl + ":" + serverPort + "/" + serverPath + "?" + command + "\n")
+	var result Samples
 	resp, err := http.Get(serverUrl + ":" + serverPort + "/" + serverPath + "?" + command)
 	if err != nil {
 		fmt.Printf("%e \n", err)
+		return result, err
 	} else {
 		defer resp.Body.Close()
 		body, _ := ioutil.ReadAll(resp.Body) // response body is []byte
-		var result Samples
 		if err := json.Unmarshal(body, &result); err != nil {  // Parse []byte to the go struct pointer
 			fmt.Println("Can not unmarshal JSON")
 		}
-		fmt.Printf("%l", result)
+		return result, nil
 	}
+}
+
+func saveSamples(fileNum int, samples Samples) {
+	file, _ := files.CreateCSV("gsr" + strconv.Itoa(fileNum))
+	var csvRow []string
+	for i, r := range samples.GetExperimentSamples[0] {
+		if (i > 1) {
+			csvRow = append(csvRow, fmt.Sprintf("%f", r))
+			fmt.Printf("row: %s", csvRow[0])
+		}
+		
+	}
+
+	csvRows := [][]string{
+		{"Value"},
+		csvRow,
+	}
+
+	files.WriteCSV(file, csvRows)
 }

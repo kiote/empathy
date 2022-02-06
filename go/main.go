@@ -3,15 +3,12 @@ package main
 import (
     "fmt"
 	"net/http"
-	"time"
 	"os"
 	"strconv"
 	"example.com/m/v2/sensors"
 	"example.com/m/v2/files"
+	"example.com/m/v2/general"
 )
-
-var currentTimestamp = time.Now().Unix()
-var dataDir = "../" +  fmt.Sprintf("%d", currentTimestamp)
 
 //
 // HTTP handlers
@@ -58,7 +55,7 @@ func eq(w http.ResponseWriter, req *http.Request) {
 // Handle "/video" requests
 func video(w http.ResponseWriter, req *http.Request) {
 	number := 1
-	if currentTimestamp % 2 == 0 {
+	if settings.CurrentTimestamp % 2 == 0 {
 		number = 2
 	}
 
@@ -75,6 +72,7 @@ func video(w http.ResponseWriter, req *http.Request) {
 func se1(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 		case "GET":	
+			fmt.Printf("SE1 GET\n")
 			sensors.SaveExperiment(1)	
 			sensors.StopExperiment()
 			if (seFileExists(1)) {
@@ -103,7 +101,8 @@ func se1(w http.ResponseWriter, req *http.Request) {
 // Handle "/se2" requests
 func se2(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
-		case "GET":		
+		case "GET":	
+			 fmt.Printf("SE2 GET\n")	
 			 sensors.SaveExperiment(2)	
 			 sensors.StopExperiment()
 			 if (seFileExists(2)) {
@@ -154,7 +153,7 @@ func saveDemographic(w http.ResponseWriter, req *http.Request) {
 		{ age, race, sex, strconv.FormatBool(nodrugs) },
 	}
 
-	file, _ := files.CreateCSV("demographic", dataDir)
+	file, _ := files.CreateCSV("demographic")
 	files.WriteCSV(file, demographicData)
 }
 
@@ -175,7 +174,7 @@ func saveEq(w http.ResponseWriter, req *http.Request) {
 		req.FormValue("q36"), req.FormValue("q37"), req.FormValue("q38"), req.FormValue("q39"), req.FormValue("q40")},
 	}
 
-	file, _ := files.CreateCSV("eq", dataDir)
+	file, _ := files.CreateCSV("eq")
 	files.WriteCSV(file, eqData)
 }
 
@@ -185,7 +184,7 @@ func saveSe(num int, w http.ResponseWriter, req *http.Request) {
 		{ req.FormValue("q1"), req.FormValue("q2"), req.FormValue("q3"), req.FormValue("q4"), req.FormValue("q5")},
 	}
 
-	file, _ := files.CreateCSV("se" + strconv.Itoa(num), dataDir)
+	file, _ := files.CreateCSV("se" + strconv.Itoa(num))
 	files.WriteCSV(file, seData)
 }
 
@@ -196,8 +195,8 @@ func saveSe(num int, w http.ResponseWriter, req *http.Request) {
 
 func seFileExists(num int) bool {
 	exists := false
-	fmt.Printf(dataDir + "/se" + strconv.Itoa(num) + ".csv")
-	if _, err := os.Stat(dataDir + "/se" + strconv.Itoa(num) + ".csv"); err == nil {
+	fmt.Printf(settings.DataDir + "/se" + strconv.Itoa(num) + ".csv")
+	if _, err := os.Stat(settings.DataDir + "/se" + strconv.Itoa(num) + ".csv"); err == nil {
 		fmt.Printf("File exists")
 		exists = true
 	}
