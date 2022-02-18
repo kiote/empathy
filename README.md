@@ -27,22 +27,14 @@ npm start
 sequenceDiagram
     Go script ->> Web page: Start experiment page
     Web page ->> Go script: EQ test results
-    Go script ->> Web page: Show randomly chosen video1
-    Go script ->> Sensors: Start experiment
-    Go script ->> iMotion: Set marker start
-    Web page ->> Web page: regirect to short test
-    Go script ->> iMotion: Set marker stop
-    Go script ->> Sensors: Stop experiment
-    Sensors ->> Go script: Sensors results
-    Web page ->> Go script: Short test results
-    
-    Go script ->> Web page: Show randomly chosen video2
-    Go script ->> Sensors: Start experiment
-    Go script ->> iMotion: Set marker start
-    Web page ->> Web page: regirect to short test
-    Go script ->> iMotion: Set marker stop
-    Go script ->> Sensors: Stop experiment
-    Sensors ->> Go script: Sensors results
-    Web page ->> Go script: Short test results
-    
+    loop 2 times
+        Go script ->> Web page: Show randomly chosen video1
+        Go script ->> Sensors: Start experiment
+        Go script ->> iMotion: Set marker start
+        Web page ->> Web page: regirect to short test
+        Go script ->> iMotion: Set marker stop
+        Go script ->> Sensors: Stop experiment
+        Sensors ->> Go script: Sensors results
+        Web page ->> Go script: Short test results    
+    end 
 ```
