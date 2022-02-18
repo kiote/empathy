@@ -1,5 +1,7 @@
 # Experiment runner for master thesis
 
+This repo is made to run experiment for my thesis. It controls NeuLog sensors (GSR, Pulse) and iMotions program.
+
 ## To start the experiment
 
 ```
