@@ -95,18 +95,28 @@ func tcpCall(message string) {
 
 func saveSamples(fileNum int, samples Samples) {
 	file, _ := files.CreateCSV("gsr_pulse" + strconv.Itoa(fileNum))
-	var csvRow []string
+	var (
+		gsrRow   []string
+		pulseRow []string
+	)
 	for i, r := range samples.GetExperimentSamples[0] {
 		if i > 1 {
-			csvRow = append(csvRow, fmt.Sprintf("%f", r))
-			fmt.Printf("row: %s", csvRow[0])
+			gsrRow = append(gsrRow, fmt.Sprintf("%f", r))
+			fmt.Printf("gsrRow: %s", gsrRow[0])
 		}
+	}
 
+	for i, r := range samples.GetExperimentSamples[1] {
+		if i > 1 {
+			pulseRow = append(pulseRow, fmt.Sprintf("%f", r))
+			fmt.Printf("pulseRow: %s", pulseRow[0])
+		}
 	}
 
 	csvRows := [][]string{
 		{"Value"},
-		csvRow,
+		gsrRow,
+		pulseRow,
 	}
 
 	files.WriteCSV(file, csvRows)
