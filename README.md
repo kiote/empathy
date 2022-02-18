@@ -12,7 +12,7 @@ open http://localhost:8090
 
 ## To calculate empathy score
 
-Copy em.csv file from corresponding folder to project root and run 
+Copy eq.csv file from corresponding folder to project root, rename it to `parse.csv` and run 
 
 ```
 npm i
