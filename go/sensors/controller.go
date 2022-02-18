@@ -114,7 +114,6 @@ func saveSamples(fileNum int, samples Samples) {
 	}
 
 	csvRows := [][]string{
-		{"Value"},
 		gsrRow,
 		pulseRow,
 	}
