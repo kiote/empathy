@@ -23,7 +23,7 @@ var (
 
 	startExperiment = "StartExperiment:[GSR],[1],[Pulse],[1],[7],[1800]"
 	stopExperiment  = "StopExperiment"
-	getSamples      = "GetExperimentSamples:[GSR],[1]"
+	getSamples      = "GetExperimentSamples:[GSR],[1],[Pulse],[1]"
 
 	tcpServerAddress       = "127.0.0.1"
 	tcpServerPort          = "8089"
