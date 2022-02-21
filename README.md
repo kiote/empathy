@@ -7,6 +7,7 @@ This repo is made to run experiment for my thesis. It controls NeuLog sensors (G
 1. Download zip of this repo.
 2. Run go/m.exe (only Windows supported)
 3. Open http://localhost:8090 in incognito window
+4. To cunduct the experiment [follow the checklist](https://github.com/kiote/empathy/blob/master/experimentChecklist.md)
 
 ## To calculate empathy score
 
