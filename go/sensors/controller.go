@@ -21,7 +21,7 @@ var (
 	serverPort = "22002"
 	serverPath = "NeuLogAPI"
 
-	startExperiment = "StartExperiment:[GSR],[1],[Pulse],[1],[7],[1800]"
+	startExperiment = "StartExperiment:[GSR],[1],[Pulse],[1],[6],[4500]"
 	stopExperiment  = "StopExperiment"
 	getSamples      = "GetExperimentSamples:[GSR],[1],[Pulse],[1]"
 
