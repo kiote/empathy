@@ -35,3 +35,7 @@ sequenceDiagram
         Web page ->> Go script: Short test results    
     end 
 ```
+
+## Data collected
+
+can be found here: https://drive.google.com/drive/u/1/folders/1c6p4stA_JGAvgFlM5DCyMnXjyYI_Pilj (if for some reason you need an access please mention why)
