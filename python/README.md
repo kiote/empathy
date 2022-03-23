@@ -13,3 +13,13 @@ docker run -i -t -p 8888:8888 -v /home/ekaterina/Sandbox/empathy/python/:/opt/no
     --no-browser --allow-root"
 ```
 4. Connect with provided adderes (http://127.0.0.1:8888/?token=\<should be provided in output\>)
+
+## Raw data
+
+Copy folders with data to `rawdata` folder (there is already one folder for example)
+
+## Results
+
+Results are presented in file https://docs.google.com/spreadsheets/d/1dNKvPI8Yzw7o3Z_3Ux3id1OIN9FHpvlIxgIzwnYc6_Y/edit#gid=2015187546
+
+Stimuli were presented to participants in randomized order. Even NR of participant: video1, video2. Odd NR of participant: video2, video1

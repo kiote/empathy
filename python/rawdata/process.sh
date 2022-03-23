@@ -14,9 +14,11 @@ function split_files() {
     rm gsr$1.csv pulse$1.csv
 }
 
-for folder in $(ls -d */); do 
+for folder in $(ls -d */); do
     cd ${folder}
     
     split_files "1"
     split_files "2"
+
+    cd ..
 done
