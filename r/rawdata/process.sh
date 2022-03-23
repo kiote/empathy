@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script was tested under MacOS Big Sur and Arch Linux
 
 function split_files() {
     # $1 - episode nr
