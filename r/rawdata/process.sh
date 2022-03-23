@@ -26,7 +26,7 @@ function add_timestamp() {
     CURRENT_TIME=0
     cat $1 | while read line 
     do
-        echo "$line;$CURRENT_TIME"
+        echo "$line,$CURRENT_TIME"
         CURRENT_TIME=$(( $CURRENT_TIME + $ONE_MEASUREMENT ))
     done > $2
 }
