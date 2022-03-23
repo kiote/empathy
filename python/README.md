@@ -3,6 +3,7 @@
 1. You'll need Docker to be installed in your system
 3. `docker pull continuumio/anaconda3`
 4. Run container:
+(remember to put your path instead of `/home/ekaterina/Sandbox/`)
 ```
 docker run -i -t -p 8888:8888 -v /home/ekaterina/Sandbox/empathy/python/:/opt/notebooks/ continuumio/anaconda3 /bin/bash -c "\
     conda install jupyter -y --quiet && \
