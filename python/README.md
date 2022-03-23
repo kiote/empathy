@@ -4,10 +4,9 @@
 3. `docker pull continuumio/anaconda3`
 4. Run container:
 ```
-docker run -i -t -p 8888:8888 -v /home/ekaterina/Sandbox/empathy/python/rawdata:/opt/notebooks/rawdata continuumio/anaconda3 /bin/bash -c "\
+docker run -i -t -p 8888:8888 -v /home/ekaterina/Sandbox/empathy/python/:/opt/notebooks/ continuumio/anaconda3 /bin/bash -c "\
     conda install jupyter -y --quiet && \
     mkdir -p /opt/notebooks && \
-    mkdir -p /opt/notebooks/rawdata && \
     jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 \
     --no-browser --allow-root"
