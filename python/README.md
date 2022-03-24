@@ -23,3 +23,15 @@ Copy folders with data to `rawdata` folder (there is already one folder for exam
 Results are presented in file https://docs.google.com/spreadsheets/d/1dNKvPI8Yzw7o3Z_3Ux3id1OIN9FHpvlIxgIzwnYc6_Y/edit#gid=2015187546
 
 Stimuli were presented to participants in randomized order. Even NR of participant: video1, video2. Odd NR of participant: video2, video1
+
+## Useful commands
+
+Find line number with particular text
+```
+awk '/Stimuli\+started/ {print FNR}' emotions.csv
+```
+
+Write to file starting from line N of another
+```
+tail -n +15116 emotions.csv > emotions1.csv
+```
