@@ -48,5 +48,20 @@ for folder in $(ls -d */); do
 
     rm "gsrLN1.csv" "gsrLN2.csv" "pulseLN1.csv" "pulseLN2.csv"
 
+    # rename
+    mv *Anonymous* emotions.csv
+
+    # get stimuli 1
+    STIMULI1_START=$(awk '/Stimuli\+started/ {print FNR}' emotions.csv | head -n 1)
+    STIMULI1_FINISH=$(awk '/Stimuli\+finished/ {print FNR}' emotions.csv | head -n 1)
+
+    sed -n "${STIMULI1_START},${STIMULI1_FINISH}p" emotions.csv > emotions1.csv
+
+    # get stimuli 2
+    STIMULI1_START=$(awk '/Stimuli\+started/ {print FNR}' emotions.csv | tail -n 1)
+    STIMULI1_FINISH=$(awk '/Stimuli\+finished/ {print FNR}' emotions.csv | tail -n 1)
+
+    sed -n "${STIMULI1_START},${STIMULI1_FINISH}p" emotions.csv > emotions2.csv
+
     cd ..
 done
